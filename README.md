@@ -14,7 +14,7 @@ Input formats for the date and time:
 -   **Date**: YYYY-MM-DD eg. 2020-07-31
 -   **Time**: HH:MM (24-hr) eg. 15:00
 
-In the app the client has following options:
+The programme uses the following variables in calculating the amount of time spent on an activity and the amount of payment earned:
 
 1.  **Check-In**:
     -   The start time is taken from the system.
