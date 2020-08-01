@@ -75,35 +75,35 @@ try:
         printStatsScreen(start, end, timeDifference, round(totalAmount, 2))
         addToFile(start, end, timeDifference, totalAmount)
     elif choice == 3:
-        with open('calc.csv') as file:
-            reader = csv.reader(file)
-            totalAmount = 0
+        try:
+            with open('calc.csv') as file:
+                reader = csv.reader(file)
+                totalAmount = 0
+                totalHours = 0
 
-            if len(list(reader)) != 0:
-                print(len(list(reader)))
                 print(
                     '------------------------------------------------------------------------')
                 print(
-                    """|   Start            |   End             |Hours worked|Amount Earned    |""")
+                    """|   Start            |   End             |Hours worked|Amount Earned    """)
                 print(
                     '------------------------------------------------------------------------')
                 for row in reader:
                     totalHours += float(row[2])
                     totalAmount += float(row[3])
                     if row[2][-2] == '.':
-                        print('| '+row[0] + '|' + row[1] + '|   ' +
-                              row[2] + '      |' + row[3]+'             |')
+                        print(' '+row[0] + '|' + row[1] + '|   ' +
+                              row[2] + '      |' + row[3]+'             ')
                     else:
-                        print('| '+row[0] + '|' + row[1] + '|   ' +
-                              row[2] + '     |' + row[3]+'             |')
+                        print(' '+row[0] + '|' + row[1] + '|   ' +
+                              row[2] + '     |' + row[3]+'             ')
                     print(
                         '------------------------------------------------------------------------')
-                    print()
-                    print(
-                        f'You have worked a total of  {totalHours} hours  and earned ${totalAmount} ')
-                    print()
-            else:
-                print('You have no past data')
+            print()
+            print(
+                f'You have worked a total of  {totalHours} hours  and earned ${totalAmount} ')
+            print()
+        except FileNotFoundError:
+            print('You have no past data')
 
     print()
     print('Exiting now')
