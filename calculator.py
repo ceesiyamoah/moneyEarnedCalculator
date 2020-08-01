@@ -13,14 +13,6 @@ def getAmountEarned(timeDifference):
     return round(timeDifference*5, 2)
 
 
-# get start time, end time(with date) and timeDifference, total amount to the csv file
-def addToFile(start, end, timeDifference, totalAmount):
-    toAdd = [[start, end, timeDifference, timeDifference, totalAmount]]
-    with open('calc.csv', 'a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(toAdd)
-
-
 # start Date and Time
 def getDateAndTimeInput(endOrStart):
     Date = input(f'Enter {endOrStart} date in YYYY-MM-DD: ')
