@@ -25,7 +25,7 @@ def addToFile(start, end, timeDifference, totalAmount):
 def getDateAndTimeInput(endOrStart):
     Date = input(f'Enter {endOrStart} date in YYYY-MM-DD: ')
     year, month, day = map(int, Date.split('-'))
-    Time = input(f'Enter {endOrStart} time in HH:MM ')
+    Time = input(f'Enter {endOrStart} time in HH:MM 24hr ')
     hour, minute = map(int, Time.split(':'))
     return datetime(year, month, day, hour, minute)
 
