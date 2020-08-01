@@ -54,3 +54,28 @@ class Error(Exception):
 
 class InvalidError(Error):
     pass
+try:
+    choice = input(
+        'Do you want to(Enter 1, 2, or 3):\n1) Check-in \n2) Check amount earned on task \n3) View all past tasks\n')
+    if (choice != '1' and choice != '2' and choice != '3'):
+        raise InvalidError
+    choice = int(choice)
+    if choice == 1:
+        start = datetime.now().replace(microsecond=0)
+        end = getDateAndTimeInput('end')
+        try:
+            if end < start:
+                raise DateError
+        except DateError:
+            print('End time cannot before start time')
+        timeDifference = timeDifference(start, end)
+        totalAmount = getAmountEarned(timeDifference)
+        printStatsScreen(start, end, timeDifference, round(totalAmount, 2))
+        addToFile(start, end, timeDifference, totalAmount)
+    elif choice == 2:
+        start = getDateAndTimeInput('start')
+        end = getDateAndTimeInput('end')
+        timeDifference = timeDifference(start, end)
+        totalAmount = getAmountEarned(timeDifference)
+        printStatsScreen(start, end, timeDifference, round(totalAmount, 2))
+        addToFile(start, end, timeDifference, totalAmount)
