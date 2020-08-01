@@ -54,6 +54,8 @@ class Error(Exception):
 
 class InvalidError(Error):
     pass
+
+
 try:
     choice = input(
         'Do you want to(Enter 1, 2, or 3):\n1) Check-in \n2) Check amount earned on task \n3) View all past tasks\n')
@@ -79,7 +81,7 @@ try:
         totalAmount = getAmountEarned(timeDifference)
         printStatsScreen(start, end, timeDifference, round(totalAmount, 2))
         addToFile(start, end, timeDifference, totalAmount)
-elif choice == 3:
+    elif choice == 3:
         with open('calc.csv') as file:
             reader = csv.reader(file)
             totalAmount = 0
@@ -115,4 +117,3 @@ elif choice == 3:
     print()
 except InvalidError:
     print('Wrong input... exiting')
-    
