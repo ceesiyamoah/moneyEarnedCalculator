@@ -103,10 +103,10 @@ elif choice == 3:
                               row[2] + '     |' + row[3]+'             |')
                     print(
                         '------------------------------------------------------------------------')
-                print()
-                print(
-                    f'You have worked a total of  {totalHours} hours  and earned ${totalAmount} ')
-                print()
+                    print()
+                    print(
+                        f'You have worked a total of  {totalHours} hours  and earned ${totalAmount} ')
+                    print()
             else:
                 print('You have no past data')
 
