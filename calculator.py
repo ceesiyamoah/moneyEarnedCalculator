@@ -5,7 +5,8 @@ import csv
 
 
 def timeDifference(start, end):
-    return round((end - start).seconds / 3600, 2)
+    totalHours = (end-start).days*24 + (end - start).seconds / 3600
+    return round(totalHours, 2)
 
 
 # Calculate amount earned (Rate=5)
